@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class SpikeAction : MonoBehaviour
 {
-
     void Start()
     {
 
@@ -15,11 +14,10 @@ public class SpikeAction : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("¹Ú¾Ò¿ò!!!!");
-
         if (collision.gameObject.CompareTag("SpikeDestroyer"))
         {
             Destroy(gameObject);
+            Debug.Log("Spike : destroyed!");
         }
     }
 }
