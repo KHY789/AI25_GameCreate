@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class L4_1PlayerController : MonoBehaviour
 {
     Rigidbody2D rb;
     ///bool isJumping = true;
@@ -14,9 +14,11 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded = false;///
 
     public GameObject text;
+    Animator animator;
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         ///isJumping = true;
         ///Debug.Log("Player : isJumping = true");
@@ -63,6 +65,8 @@ public class PlayerController : MonoBehaviour
             ///rb.linearVelocity = new Vector2(0.0f, JumpPower);
             ///isJumping = true;
             ///Debug.Log("Player : isJumping = true");
+            Debug.Log("(바닥에 닿음.)점프 애니메이션 재생 시도!");
+            animator.Play("Player_Animation", -1, 0f);
             SwitchGravityAndPlatform();
         }
     }
